@@ -148,6 +148,57 @@
                     background-color: var(--secondary);
                 }
 
+        /* Estilos para la Tarjeta de Compartir / Recomendar */
+        .share-card {
+            text-align: center;
+            border-left-color: #8b5cf6;
+            background: linear-gradient(to right, #ffffff, #f5f3ff);
+        }
+
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.2rem;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            text-decoration: none;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.1s, opacity 0.2s;
+        }
+
+            .share-btn:hover {
+                opacity: 0.9;
+                transform: translateY(-1px);
+            }
+
+            .share-btn.whatsapp {
+                background-color: #25d366;
+            }
+
+            .share-btn.copy {
+                background-color: #6366f1;
+            }
+
+        #copyToast {
+            display: none;
+            font-size: 0.85rem;
+            color: #4c1d95;
+            margin-top: 0.5rem;
+            font-weight: bold;
+        }
+
         footer {
             text-align: center;
             padding: 2rem 1rem;
@@ -221,6 +272,21 @@
             </div>
         </div>
 
+        <!-- Sección 5: Compartir y Recomendar -->
+        <div class="card share-card">
+            <h2>📢 ¿Te sirvió esta herramienta?</h2>
+            <p>Recomendásela a un compañero de trabajo o familiar para que también conozca sus derechos laborales y pueda resolver sus dudas.</p>
+            <div class="share-buttons">
+                <a id="whatsappShareBtn" href="#" target="_blank" class="share-btn whatsapp">
+                    📲 Compartir por WhatsApp
+                </a>
+                <button onclick="copyLink()" class="share-btn copy">
+                    🔗 Copiar Enlace
+                </button>
+            </div>
+            <div id="copyToast">¡Enlace copiado al portapapeles!</div>
+        </div>
+
     </div>
 
     <footer>
@@ -228,6 +294,21 @@
     </footer>
 
     <script>
+        // Configuración del enlace dinámico para compartir por WhatsApp
+        const siteUrl = window.location.href;
+        const shareText = encodeURIComponent(`Mirá esta Guía de Trámites y Derechos del Trabajador con asistente virtual de consultas sobre recibos y licencias: ${siteUrl}`);
+        document.getElementById('whatsappShareBtn').href = `https://api.whatsapp.com/send?text=${shareText}`;
+
+        function copyLink() {
+            navigator.clipboard.writeText(siteUrl).then(() => {
+                const toast = document.getElementById('copyToast');
+                toast.style.display = 'block';
+                setTimeout(() => {
+                    toast.style.display = 'none';
+                }, 3000);
+            });
+        }
+
         async function sendMessage() {
             const userInput = document.getElementById('userInput');
             const chatBox = document.getElementById('chatBox');
