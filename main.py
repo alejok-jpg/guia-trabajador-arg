@@ -1,7 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 import os
 
 app = FastAPI()
@@ -15,8 +16,6 @@ app.add_middleware(
 )
 
 api_key = os.environ.get("GEMINI_API_KEY")
-if api_key:
-    genai.configure(api_key=api_key)
 
 class QuestionRequest(BaseModel):
     prompt: str
@@ -26,6 +25,9 @@ async def ask_gemini(request: QuestionRequest):
     try:
         if not api_key:
             return {"response": "Error: No se encontro la GEMINI_API_KEY en Render."}
+
+        # Inicializar el nuevo cliente oficial
+        client = genai.Client(api_key=api_key)
 
         system_instruction = (
             "Sos exclusivamente un asistente especializado en legislacion laboral, derechos del trabajador "
@@ -37,13 +39,14 @@ async def ask_gemini(request: QuestionRequest):
             "3. Manten un tono claro, profesional y comprensible para cualquier trabajador."
         )
 
-        # Usamos gemini-2.5-flash pasando la instruccion del sistema en la configuracion del modelo
-        model = genai.GenerativeModel(
-            model_name="gemini-2.5-flash",
-            system_instruction=system_instruction
+        # Generacion de contenido usando la nueva API
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=request.prompt,
+            config=types.GenerateContentConfig(
+                system_instruction=system_instruction
+            )
         )
-        
-        response = model.generate_content(request.prompt)
         
         return {"response": response.text}
 
