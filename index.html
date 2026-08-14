@@ -60,7 +60,7 @@
             max-width: 900px;
             margin: 2rem auto;
             padding: 0 1rem;
-            margin-bottom: 7rem; /* Espacio libre para los botones flotantes */
+            margin-bottom: 12rem; /* Espacio inferior adecuado para los botones apilados */
         }
 
         .card {
@@ -156,16 +156,16 @@
             font-weight: bold;
         }
 
-        /* --- BARRA DE BOTONES FLOTANTES --- */
+        /* --- BARRA DE BOTONES FLOTANTES APILADOS (COLUMNA VERTICAL) --- */
         .floating-actions {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
+            bottom: 20px;
+            right: 20px;
             display: flex;
+            flex-direction: column; /* Apilados verticalmente */
+            align-items: flex-end;
             gap: 10px;
             z-index: 1000;
-            flex-wrap: wrap;
-            justify-content: flex-end;
         }
 
         .float-btn {
@@ -173,44 +173,43 @@
             color: white;
             border: none;
             border-radius: 50px;
-            padding: 12px 18px;
-            font-size: 0.9rem;
+            padding: 10px 16px;
+            font-size: 0.88rem;
             font-weight: bold;
-            box-shadow: 0 8px 20px -5px rgba(2, 132, 199, 0.4);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 6px;
             transition: transform 0.2s, box-shadow 0.2s;
+            width: fit-content;
         }
 
             .float-btn:hover {
-                transform: scale(1.05);
-                box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.6);
+                transform: scale(1.04);
+                box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
             }
 
             .float-btn.calc-theme {
                 background: linear-gradient(135deg, #0f766e, #0d9488);
-                box-shadow: 0 8px 20px -5px rgba(13, 148, 136, 0.4);
             }
 
             .float-btn.indem-theme {
                 background: linear-gradient(135deg, #c2410c, #ea580c);
-                box-shadow: 0 8px 20px -5px rgba(234, 88, 12, 0.4);
             }
 
         /* --- VENTANAS FLOTANTES --- */
         .floating-window {
             display: none;
             position: fixed;
-            bottom: 85px;
-            right: 25px;
-            width: 390px;
+            bottom: 20px;
+            right: 20px;
+            width: 380px;
             max-width: calc(100vw - 40px);
-            max-height: 82vh;
+            max-height: 85vh;
             background-color: #ffffff;
             border-radius: 16px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
             border: 1px solid #e2e8f0;
             flex-direction: column;
             overflow: hidden;
@@ -270,7 +269,7 @@
             flex: 1;
         }
 
-        /* Estilos Internos de Formularios de Calculadora */
+        /* Estilos Internos de Formularios */
         .calc-group {
             display: flex;
             flex-direction: column;
@@ -526,7 +525,7 @@
 
     </div>
 
-    <!-- TRES BOTONES FLOTANTES AL PIE -->
+    <!-- TRES BOTONES FLOTANTES APILADOS VERTICALMENTE -->
     <div class="floating-actions">
         <button class="float-btn" onclick="toggleWindow('chatWidget')">
             🤖 <span>Consultas (IA)</span>
@@ -680,7 +679,6 @@
     </footer>
 
     <script>
-        // Manejo de ventanas desplegables únicas
         function toggleWindow(idToOpen) {
             const windows = ['calcWidget', 'chatWidget', 'indemWidget'];
 
@@ -699,7 +697,6 @@
             });
         }
 
-        // Calculadora Salarial Mensual
         function calcularValores() {
             const bruto = parseFloat(document.getElementById('sueldoBruto').value);
             const mesesSac = parseInt(document.getElementById('mesesSac').value);
@@ -729,7 +726,6 @@
             document.getElementById('calcResults').style.display = 'block';
         }
 
-        // Calculadora de Indemnización
         function calcularIndemnizacion() {
             const sueldo = parseFloat(document.getElementById('indemSueldo').value);
             let anios = parseInt(document.getElementById('indemAnios').value) || 0;
@@ -741,17 +737,14 @@
                 return;
             }
 
-            // Si trabajó más de 3 meses extra, se computa 1 año entero adicional (Art. 245 LCT)
             let periodos = anios;
             if (fraccion === 'si' || (anios === 0 && fraccion === 'si')) {
                 periodos += 1;
             }
-            if (periodos === 0) periodos = 1; // Mínimo 1 mes de sueldo por ley
+            if (periodos === 0) periodos = 1;
 
-            // Indemnización Art. 245
             const indemAntiguedad = sueldo * periodos;
 
-            // Preaviso (1 mes si antigüedad < 5 años, 2 meses si es >= 5 años)
             let mesesPreaviso = 0;
             if (preaviso === 'no') {
                 mesesPreaviso = periodos < 5 ? 1 : 2;
