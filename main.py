@@ -14,7 +14,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Configuracion de la API Key
 api_key = os.environ.get("GEMINI_API_KEY")
 if api_key:
     genai.configure(api_key=api_key)
@@ -28,9 +27,6 @@ async def ask_gemini(request: QuestionRequest):
         if not api_key:
             return {"response": "Error: No se encontro la GEMINI_API_KEY en Render."}
 
-        # Modelo oficial compatible
-        model = genai.GenerativeModel("gemini-1.5-flash-latest")
-        
         system_instruction = (
             "Sos exclusivamente un asistente especializado en legislacion laboral, derechos del trabajador "
             "y liquidacion de sueldos de Argentina (Ley de Contrato de Trabajo 20.744, CCT, licencias, recibos de sueldo, etc.).\n"
@@ -40,9 +36,14 @@ async def ask_gemini(request: QuestionRequest):
             "debes rechazar la consulta amablemente indicando que la herramienta es solo para consultas laborales.\n"
             "3. Manten un tono claro, profesional y comprensible para cualquier trabajador."
         )
+
+        # Usamos gemini-2.5-flash pasando la instruccion del sistema en la configuracion del modelo
+        model = genai.GenerativeModel(
+            model_name="gemini-2.5-flash",
+            system_instruction=system_instruction
+        )
         
-        full_prompt = f"{system_instruction}\n\nPregunta del usuario: {request.prompt}"
-        response = model.generate_content(full_prompt)
+        response = model.generate_content(request.prompt)
         
         return {"response": response.text}
 
