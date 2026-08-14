@@ -8,14 +8,14 @@
     <meta name="google-site-verification" content="gDJFB2aOHivIJk0l2IIMvGO1Iv6dn42dDJTBsQIf8ts" />
 
     <!-- SEO Básico para Buscadores -->
-    <title>Guía y Calculadora de Derechos del Trabajador Argentina</title>
-    <meta name="description" content="Guía interactiva y calculadora laboral en Argentina: estimá tu sueldo neto, aguinaldo (SAC), vacaciones y consultá tus dudas con nuestro asistente virtual.">
-    <meta name="keywords" content="calculadora de sueldo, calcular aguinaldo, sac proporcional, calculo vacaciones, recibo de sueldo, derechos laborales, Argentina, LCT 20744">
+    <title>Guía, Calculadoras y Derechos del Trabajador Argentina</title>
+    <meta name="description" content="Guía interactiva y calculadoras laborales en Argentina: estimá tu sueldo neto, aguinaldo (SAC), plus vacacional, indemnización por despido y consultá con nuestra IA.">
+    <meta name="keywords" content="calculadora de sueldo, calcular aguinaldo, sac proporcional, calculo indemnizacion despido, preaviso, recibo de sueldo, derechos laborales, Argentina, LCT 20744">
     <meta name="author" content="Guía del Trabajador Arg">
 
     <!-- Open Graph para vistas previas en WhatsApp, LinkedIn y Redes Sociales -->
-    <meta property="og:title" content="Guía y Calculadora de Derechos del Trabajador Argentina">
-    <meta property="og:description" content="Calculá tu sueldo neto, aguinaldo y vacaciones estimadas, y consultá tus dudas laborales con nuestro asistente virtual gratuito.">
+    <meta property="og:title" content="Guía y Calculadoras de Derechos del Trabajador Argentina">
+    <meta property="og:description" content="Calculá tu sueldo neto, aguinaldo, indemnización estimada por despido y consultá tus dudas laborales con nuestro asistente virtual gratuito.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://alejok-jpg.github.io/guia-trabajador-arg/">
 
@@ -60,6 +60,7 @@
             max-width: 900px;
             margin: 2rem auto;
             padding: 0 1rem;
+            margin-bottom: 7rem; /* Espacio libre para los botones flotantes */
         }
 
         .card {
@@ -102,98 +103,6 @@
 
         li {
             margin-bottom: 0.5rem;
-        }
-
-        /* Estilos de la Calculadora Laboral */
-        .calc-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.2rem;
-            margin-top: 1rem;
-        }
-
-        .calc-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-        }
-
-            .calc-group label {
-                font-size: 0.9rem;
-                font-weight: bold;
-                color: var(--accent);
-            }
-
-            .calc-group input, .calc-group select {
-                padding: 0.6rem;
-                border: 1px solid #cbd5e1;
-                border-radius: 8px;
-                font-size: 0.95rem;
-                outline: none;
-            }
-
-                .calc-group input:focus, .calc-group select:focus {
-                    border-color: var(--secondary);
-                }
-
-        .calc-btn {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.2rem;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 1.2rem;
-            transition: background 0.2s;
-        }
-
-            .calc-btn:hover {
-                background-color: var(--secondary);
-            }
-
-        .calc-results {
-            display: none;
-            margin-top: 1.5rem;
-            padding: 1.2rem;
-            background-color: #f0f9ff;
-            border: 1px solid #bae6fd;
-            border-radius: 10px;
-        }
-
-            .calc-results h3 {
-                margin-top: 0;
-                color: #0369a1;
-            }
-
-        .result-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.4rem 0;
-            border-bottom: 1px dashed #cbd5e1;
-            font-size: 0.95rem;
-        }
-
-            .result-item.total {
-                border-bottom: none;
-                font-weight: bold;
-                font-size: 1.1rem;
-                color: var(--primary);
-                margin-top: 0.5rem;
-                padding-top: 0.8rem;
-            }
-
-        .disclaimer {
-            font-size: 0.8rem;
-            color: #64748b;
-            margin-top: 1rem;
-            font-style: italic;
-            background-color: #fffbebf8;
-            padding: 0.6rem;
-            border-radius: 6px;
-            border-left: 3px solid #f59e0b;
         }
 
         /* Estilos de la Tarjeta de Compartir */
@@ -247,47 +156,65 @@
             font-weight: bold;
         }
 
-        /* --- WIDGET DE CHAT FLOTANTE --- */
-        .chat-widget-button {
+        /* --- BARRA DE BOTONES FLOTANTES --- */
+        .floating-actions {
             position: fixed;
             bottom: 25px;
             right: 25px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .float-btn {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             border: none;
             border-radius: 50px;
-            padding: 14px 20px;
-            font-size: 1rem;
+            padding: 12px 18px;
+            font-size: 0.9rem;
             font-weight: bold;
-            box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.4);
+            box-shadow: 0 8px 20px -5px rgba(2, 132, 199, 0.4);
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 8px;
-            z-index: 1000;
+            gap: 6px;
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
-            .chat-widget-button:hover {
+            .float-btn:hover {
                 transform: scale(1.05);
-                box-shadow: 0 12px 30px -5px rgba(2, 132, 199, 0.6);
+                box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.6);
             }
 
-        .chat-widget-container {
+            .float-btn.calc-theme {
+                background: linear-gradient(135deg, #0f766e, #0d9488);
+                box-shadow: 0 8px 20px -5px rgba(13, 148, 136, 0.4);
+            }
+
+            .float-btn.indem-theme {
+                background: linear-gradient(135deg, #c2410c, #ea580c);
+                box-shadow: 0 8px 20px -5px rgba(234, 88, 12, 0.4);
+            }
+
+        /* --- VENTANAS FLOTANTES --- */
+        .floating-window {
             display: none;
             position: fixed;
-            bottom: 90px;
+            bottom: 85px;
             right: 25px;
-            width: 360px;
+            width: 390px;
             max-width: calc(100vw - 40px);
-            height: 480px;
+            max-height: 82vh;
             background-color: #ffffff;
             border-radius: 16px;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             border: 1px solid #e2e8f0;
             flex-direction: column;
             overflow: hidden;
-            z-index: 1000;
+            z-index: 1001;
             animation: popup 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -303,7 +230,7 @@
             }
         }
 
-        .chat-header {
+        .window-header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             padding: 1rem;
@@ -312,13 +239,21 @@
             align-items: center;
         }
 
-            .chat-header h3 {
+            .window-header.calc-header {
+                background: linear-gradient(135deg, #0f766e, #0d9488);
+            }
+
+            .window-header.indem-header {
+                background: linear-gradient(135deg, #c2410c, #ea580c);
+            }
+
+            .window-header h3 {
                 margin: 0;
-                font-size: 1.05rem;
+                font-size: 1rem;
                 color: white;
             }
 
-        .chat-close-btn {
+        .window-close-btn {
             background: transparent;
             border: none;
             color: white;
@@ -328,8 +263,116 @@
             line-height: 1;
         }
 
-        .chat-box {
+        .window-content {
+            padding: 1.2rem;
+            overflow-y: auto;
+            background-color: #f8fafc;
             flex: 1;
+        }
+
+        /* Estilos Internos de Formularios de Calculadora */
+        .calc-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+            .calc-group label {
+                font-size: 0.85rem;
+                font-weight: bold;
+                color: var(--accent);
+            }
+
+            .calc-group input, .calc-group select {
+                padding: 0.5rem;
+                border: 1px solid #cbd5e1;
+                border-radius: 8px;
+                font-size: 0.9rem;
+                outline: none;
+            }
+
+        .calc-action-btn {
+            background-color: #0f766e;
+            color: white;
+            border: none;
+            padding: 0.7rem;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+
+            .calc-action-btn.indem {
+                background-color: #c2410c;
+            }
+
+                .calc-action-btn.indem:hover {
+                    background-color: #ea580c;
+                }
+
+        .calc-results {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 8px;
+        }
+
+            .calc-results.indem-res {
+                background-color: #fff7ed;
+                border-color: #ffedd5;
+            }
+
+            .calc-results h4 {
+                margin-top: 0;
+                margin-bottom: 0.5rem;
+                color: #166534;
+                font-size: 0.95rem;
+            }
+
+            .calc-results.indem-res h4 {
+                color: #9a3412;
+            }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.3rem 0;
+            border-bottom: 1px dashed #cbd5e1;
+            font-size: 0.85rem;
+        }
+
+            .result-item.total {
+                border-bottom: none;
+                font-weight: bold;
+                font-size: 0.95rem;
+                color: #0f766e;
+                margin-top: 0.4rem;
+                padding-top: 0.5rem;
+            }
+
+                .result-item.total.indem {
+                    color: #c2410c;
+                }
+
+        .disclaimer-small {
+            font-size: 0.75rem;
+            color: #64748b;
+            margin-top: 0.8rem;
+            font-style: italic;
+            background-color: #fffbebf8;
+            padding: 0.5rem;
+            border-radius: 6px;
+            border-left: 3px solid #f59e0b;
+        }
+
+        /* Estilos del Chat */
+        .chat-box {
+            height: 320px;
             padding: 1rem;
             overflow-y: auto;
             background-color: #f8fafc;
@@ -342,7 +385,7 @@
             max-width: 85%;
             padding: 0.6rem 1rem;
             border-radius: 12px;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             white-space: pre-wrap;
         }
 
@@ -373,28 +416,19 @@
                 padding: 0.6rem;
                 border: 1px solid #cbd5e1;
                 border-radius: 8px;
-                font-size: 0.9rem;
+                font-size: 0.88rem;
                 outline: none;
             }
-
-                .chat-controls input[type="text"]:focus {
-                    border-color: var(--secondary);
-                }
 
             .chat-controls button {
                 background-color: var(--primary);
                 color: white;
                 border: none;
-                padding: 0.6rem 1rem;
+                padding: 0.6rem 0.9rem;
                 border-radius: 8px;
                 cursor: pointer;
                 font-weight: bold;
-                transition: background 0.2s;
             }
-
-                .chat-controls button:hover {
-                    background-color: var(--secondary);
-                }
 
         footer {
             text-align: center;
@@ -402,7 +436,6 @@
             font-size: 0.9rem;
             color: #64748b;
             border-top: 1px solid #e2e8f0;
-            margin-top: 3rem;
         }
     </style>
 </head>
@@ -410,78 +443,15 @@
 
     <header>
         <h1>Guía de Trámites y Derechos del Trabajador</h1>
-        <p>Información clara, calculadora estimada y consultas públicas sobre legislación laboral en Argentina</p>
+        <p>Información clara, pública y accesible sobre legislación laboral y liquidación de haberes en Argentina</p>
     </header>
 
     <div class="container">
 
-        <!-- NUEVA SECCIÓN: CALCULADORA ESTIMADA DE CONCEPTOS -->
-        <div class="card">
-            <h2>🧮 Calculadora de Conceptos Laborales (Estimativa)</h2>
-            <p>Ingresá tu sueldo bruto estimado para calcular los descuentos obligatorios de ley y valores proporcionales:</p>
-
-            <div class="calc-grid">
-                <div class="calc-group">
-                    <label for="sueldoBruto">Sueldo Bruto / Básico ($):</label>
-                    <input type="number" id="sueldoBruto" placeholder="Ej: 500000" min="0">
-                </div>
-                <div class="calc-group">
-                    <label for="mesesSac">Meses trabajados en el semestre (SAC):</label>
-                    <select id="mesesSac">
-                        <option value="6">6 meses (Semestre completo)</option>
-                        <option value="5">5 meses</option>
-                        <option value="4">4 meses</option>
-                        <option value="3">3 meses</option>
-                        <option value="2">2 meses</option>
-                        <option value="1">1 mes</option>
-                    </select>
-                </div>
-                <div class="calc-group">
-                    <label for="diasVacaciones">Días de vacaciones correspondientes:</label>
-                    <select id="diasVacaciones">
-                        <option value="14">14 días (hasta 5 años de antigüedad)</option>
-                        <option value="21">21 días (de 5 a 10 años)</option>
-                        <option value="28">28 días (de 10 a 20 años)</option>
-                        <option value="35">35 días (más de 20 años)</option>
-                    </select>
-                </div>
-            </div>
-
-            <button class="calc-btn" onclick="calcularValores()">Calcular Estimación</button>
-
-            <div id="calcResults" class="calc-results">
-                <h3>📋 Resumen de Estimación:</h3>
-                <div class="result-item">
-                    <span>Sueldo Bruto Ingresado:</span>
-                    <strong id="resBruto">$0</strong>
-                </div>
-                <div class="result-item">
-                    <span>Descuentos Ley de Contrato de Trabajo (-17%):</span>
-                    <strong id="resDescuentos" style="color: #dc2626;">-$0</strong>
-                </div>
-                <div class="result-item total">
-                    <span>Sueldo Neto / Bolsillo Estimado:</span>
-                    <strong id="resNeto">$0</strong>
-                </div>
-                <div class="result-item" style="margin-top:0.8rem; padding-top:0.6rem; border-top: 1px solid #cbd5e1;">
-                    <span>Aguinaldo Proporcional Estimado (SAC):</span>
-                    <strong id="resSac">$0</strong>
-                </div>
-                <div class="result-item">
-                    <span>Valor estimado por Día de Vacación (Base LCT /25):</span>
-                    <strong id="resDiaVacaciones">$0</strong>
-                </div>
-            </div>
-
-            <div class="disclaimer">
-                <strong>📌 Nota importante:</strong> Los valores calculados son meramente ilustrativos y orientativos conforme a la Ley de Contrato de Trabajo N° 20.744. No contemplan aportes/contribuciones adicionales de Convenios Colectivos específicos, cuotas sindicales particulares ni la eventual retención del Impuesto a las Ganancias.
-            </div>
-        </div>
-
         <!-- Sección 1: Entendiendo el Recibo de Sueldo -->
         <div class="card">
             <h2>📄 1. ¿Cómo entender tu Recibo de Sueldo?</h2>
-            <p>El recibo de sueldo es el comprobante legal del pago de tu remuneración en Argentina. Se compone de tres conceptos fundamentales:</p>
+            <p>El recibo de sueldo es el comprobante legal del pago de tu remuneración en Argentina (Ley de Contrato de Trabajo 20.744). Se compone de tres conceptos fundamentales:</p>
             <ul>
                 <li><strong>Haberes Remunerativos:</strong> Conceptos sobre los cuales se realizan los descuentos de ley (Jubilación, Obra Social, etc.). Incluye el sueldo básico, antigüedad, presentismo y horas extra.</li>
                 <li><strong>Haberes No Remunerativos:</strong> Sumas extraordinarias, viáticos o asignaciones sobre las que generalmente no se realizan aportes previsionales.</li>
@@ -497,7 +467,7 @@
             </ul>
         </div>
 
-        <!-- Sección 2: Cálculo de Horas Extra -->
+        <!-- Sección 2: Horas Extra -->
         <div class="card">
             <h2>⏱️ 2. ¿Cómo se calculan las Horas Extraordinarias?</h2>
             <p>Cuando trabajás fuera de la jornada legal habitual (8 horas diarias o 48 semanales):</p>
@@ -556,16 +526,24 @@
 
     </div>
 
-    <!-- Botón Flotante para abrir el Chat -->
-    <button class="chat-widget-button" onclick="toggleChat()">
-        🤖 <span>Consultas</span>
-    </button>
+    <!-- TRES BOTONES FLOTANTES AL PIE -->
+    <div class="floating-actions">
+        <button class="float-btn" onclick="toggleWindow('chatWidget')">
+            🤖 <span>Consultas (IA)</span>
+        </button>
+        <button class="float-btn calc-theme" onclick="toggleWindow('calcWidget')">
+            🧮 <span>Calculadora Salarial</span>
+        </button>
+        <button class="float-btn indem-theme" onclick="toggleWindow('indemWidget')">
+            💼 <span>Indemnización</span>
+        </button>
+    </div>
 
-    <!-- Ventana Flotante del Chat -->
-    <div class="chat-widget-container" id="chatWidget">
-        <div class="chat-header">
+    <!-- POPUP 1: CHAT ASISTENTE IA -->
+    <div class="floating-window" id="chatWidget">
+        <div class="window-header">
             <h3>🤖 Asistente Laboral IA</h3>
-            <button class="chat-close-btn" onclick="toggleChat()">✕</button>
+            <button class="window-close-btn" onclick="toggleWindow('chatWidget')">✕</button>
         </div>
         <div class="chat-box" id="chatBox">
             <div class="message bot">Hola 👋 Soy el asistente virtual. ¿En qué duda sobre tu recibo, licencias o derechos laborales te puedo orientar hoy?</div>
@@ -576,30 +554,168 @@
         </div>
     </div>
 
+    <!-- POPUP 2: CALCULADORA SALARIAL -->
+    <div class="floating-window" id="calcWidget">
+        <div class="window-header calc-header">
+            <h3>🧮 Calculadora Salarial Estimada</h3>
+            <button class="window-close-btn" onclick="toggleWindow('calcWidget')">✕</button>
+        </div>
+        <div class="window-content">
+            <div class="calc-group">
+                <label for="sueldoBruto">Sueldo Bruto / Básico ($):</label>
+                <input type="number" id="sueldoBruto" placeholder="Ej: 500000" min="0">
+            </div>
+            <div class="calc-group">
+                <label for="mesesSac">Meses trabajados en el semestre (SAC):</label>
+                <select id="mesesSac">
+                    <option value="6">6 meses (Semestre completo)</option>
+                    <option value="5">5 meses</option>
+                    <option value="4">4 meses</option>
+                    <option value="3">3 meses</option>
+                    <option value="2">2 meses</option>
+                    <option value="1">1 mes</option>
+                </select>
+            </div>
+
+            <button class="calc-action-btn" onclick="calcularValores()">Calcular Estimación</button>
+
+            <div id="calcResults" class="calc-results">
+                <h4>📋 Resumen de Estimación:</h4>
+                <div class="result-item">
+                    <span>Sueldo Bruto Ingresado:</span>
+                    <strong id="resBruto">$0</strong>
+                </div>
+                <div class="result-item">
+                    <span>Descuentos de Ley (-17%):</span>
+                    <strong id="resDescuentos" style="color: #dc2626;">-$0</strong>
+                </div>
+                <div class="result-item total">
+                    <span>Sueldo Neto Estimado:</span>
+                    <strong id="resNeto">$0</strong>
+                </div>
+                <div class="result-item" style="margin-top:0.4rem; padding-top:0.4rem; border-top: 1px dashed #cbd5e1;">
+                    <span>Aguinaldo Proporcional (SAC):</span>
+                    <strong id="resSac">$0</strong>
+                </div>
+                <div class="result-item">
+                    <span>Valor Día Vacacional (÷25):</span>
+                    <strong id="resDiaVacacion" style="color: #0284c7;">$0</strong>
+                </div>
+                <div class="result-item">
+                    <span>Plus Vacacional Ley / día:</span>
+                    <strong id="resPlusVacacional" style="color: #16a34a;">+$0 / día</strong>
+                </div>
+            </div>
+
+            <div class="disclaimer-small">
+                <strong>📌 Nota:</strong> Valores orientativos según la LCT N° 20.744. No incluyen retenciones por Impuesto a las Ganancias ni adicionales de CCT.
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP 3: CALCULADORA DE INDEMNIZACIÓN -->
+    <div class="floating-window" id="indemWidget">
+        <div class="window-header indem-header">
+            <h3>💼 Estimador de Indemnización (Art. 245)</h3>
+            <button class="window-close-btn" onclick="toggleWindow('indemWidget')">✕</button>
+        </div>
+        <div class="window-content">
+            <div class="calc-group">
+                <label for="indemSueldo">Mejor Sueldo Bruto (MRNH):</label>
+                <input type="number" id="indemSueldo" placeholder="Ej: 600000" min="0">
+            </div>
+            <div class="calc-group">
+                <label for="indemAnios">Años completos trabajados:</label>
+                <input type="number" id="indemAnios" placeholder="Ej: 3" min="0">
+            </div>
+            <div class="calc-group">
+                <label for="indemFraccion">¿Trabajó más de 3 meses en el último año?</label>
+                <select id="indemFraccion">
+                    <option value="si">Sí (Suma 1 período más)</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="calc-group">
+                <label for="indemPreaviso">¿Hubo aviso previo de despido?</label>
+                <select id="indemPreaviso">
+                    <option value="no">No (Corresponde Indemnización por Preaviso)</option>
+                    <option value="si">Sí (Preavisado con tiempo)</option>
+                </select>
+            </div>
+
+            <button class="calc-action-btn indem" onclick="calcularIndemnizacion()">Calcular Indemnización</button>
+
+            <div id="indemResults" class="calc-results indem-res">
+                <h4>💼 Estimación por Despido sin Causa:</h4>
+                <div class="result-item">
+                    <span>Períodos a liquidar:</span>
+                    <strong id="resPeriodos">0 años</strong>
+                </div>
+                <div class="result-item">
+                    <span>Indemnización Antigüedad (Art. 245):</span>
+                    <strong id="resIndemAntiguedad">$0</strong>
+                </div>
+                <div class="result-item">
+                    <span>Falta de Preaviso Omisión:</span>
+                    <strong id="resIndemPreaviso">$0</strong>
+                </div>
+                <div class="result-item">
+                    <span>SAC s/ Preaviso Omisión:</span>
+                    <strong id="resSacPreaviso">$0</strong>
+                </div>
+                <div class="result-item total indem">
+                    <span>Total Estimado Base:</span>
+                    <strong id="resIndemTotal">$0</strong>
+                </div>
+            </div>
+
+            <div class="disclaimer-small">
+                <strong>📌 Nota:</strong> Cálculo aproximado conforme al Art. 245 de la LCT. En un despido real se suman además la integración del mes de despido, vacaciones no gozadas y el SAC proporcional acumulado.
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>Proyecto Comunitario de Acceso Libre | Guía e Instrumental Informativo de Derechos Laborales en Argentina</p>
     </footer>
 
     <script>
+        // Manejo de ventanas desplegables únicas
+        function toggleWindow(idToOpen) {
+            const windows = ['calcWidget', 'chatWidget', 'indemWidget'];
+
+            windows.forEach(id => {
+                const win = document.getElementById(id);
+                if (id === idToOpen) {
+                    if (win.style.display === 'flex') {
+                        win.style.display = 'none';
+                    } else {
+                        win.style.display = 'flex';
+                        if (id === 'chatWidget') document.getElementById('userInput').focus();
+                    }
+                } else {
+                    win.style.display = 'none';
+                }
+            });
+        }
+
+        // Calculadora Salarial Mensual
         function calcularValores() {
             const bruto = parseFloat(document.getElementById('sueldoBruto').value);
             const mesesSac = parseInt(document.getElementById('mesesSac').value);
-            const diasVac = parseInt(document.getElementById('diasVacaciones').value);
 
             if (isNaN(bruto) || bruto <= 0) {
                 alert("Por favor, ingresá un monto de sueldo bruto válido.");
                 return;
             }
 
-            // Descuentos Ley (11% + 3% + 3% = 17%)
             const descuentos = bruto * 0.17;
             const neto = bruto - descuentos;
-
-            // SAC Proporcional = (Bruto / 2) * (meses / 6)
             const sac = (bruto / 2) * (mesesSac / 6);
 
-            // Valor día vacación = Bruto / 25
-            const diaVac = bruto / 25;
+            const diaNormal = bruto / 30;
+            const diaVacacion = bruto / 25;
+            const plusPorDia = diaVacacion - diaNormal;
 
             const format = (num) => "$ " + num.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
@@ -607,23 +723,57 @@
             document.getElementById('resDescuentos').textContent = "- " + format(descuentos);
             document.getElementById('resNeto').textContent = format(neto);
             document.getElementById('resSac').textContent = format(sac);
-            document.getElementById('resDiaVacaciones').textContent = format(diaVac) + " / día";
+            document.getElementById('resDiaVacacion').textContent = format(diaVacacion);
+            document.getElementById('resPlusVacacional').textContent = "+ " + format(plusPorDia) + " / día";
 
             document.getElementById('calcResults').style.display = 'block';
         }
 
-        function toggleChat() {
-            const widget = document.getElementById('chatWidget');
-            if (widget.style.display === 'flex') {
-                widget.style.display = 'none';
-            } else {
-                widget.style.display = 'flex';
-                document.getElementById('userInput').focus();
+        // Calculadora de Indemnización
+        function calcularIndemnizacion() {
+            const sueldo = parseFloat(document.getElementById('indemSueldo').value);
+            let anios = parseInt(document.getElementById('indemAnios').value) || 0;
+            const fraccion = document.getElementById('indemFraccion').value;
+            const preaviso = document.getElementById('indemPreaviso').value;
+
+            if (isNaN(sueldo) || sueldo <= 0) {
+                alert("Por favor, ingresá la mejor remuneración mensual (bruta).");
+                return;
             }
+
+            // Si trabajó más de 3 meses extra, se computa 1 año entero adicional (Art. 245 LCT)
+            let periodos = anios;
+            if (fraccion === 'si' || (anios === 0 && fraccion === 'si')) {
+                periodos += 1;
+            }
+            if (periodos === 0) periodos = 1; // Mínimo 1 mes de sueldo por ley
+
+            // Indemnización Art. 245
+            const indemAntiguedad = sueldo * periodos;
+
+            // Preaviso (1 mes si antigüedad < 5 años, 2 meses si es >= 5 años)
+            let mesesPreaviso = 0;
+            if (preaviso === 'no') {
+                mesesPreaviso = periodos < 5 ? 1 : 2;
+            }
+            const montoPreaviso = sueldo * mesesPreaviso;
+            const sacPreaviso = montoPreaviso / 12;
+
+            const totalIndem = indemAntiguedad + montoPreaviso + sacPreaviso;
+
+            const format = (num) => "$ " + num.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+            document.getElementById('resPeriodos').textContent = periodos + " " + (periodos === 1 ? "período" : "períodos");
+            document.getElementById('resIndemAntiguedad').textContent = format(indemAntiguedad);
+            document.getElementById('resIndemPreaviso').textContent = format(montoPreaviso);
+            document.getElementById('resSacPreaviso').textContent = format(sacPreaviso);
+            document.getElementById('resIndemTotal').textContent = format(totalIndem);
+
+            document.getElementById('indemResults').style.display = 'block';
         }
 
         const siteUrl = window.location.href;
-        const shareText = encodeURIComponent(`Mirá esta Guía y Calculadora de Derechos del Trabajador con asistente virtual de consultas laborales: ${siteUrl}`);
+        const shareText = encodeURIComponent(`Mirá esta Guía y Calculadoras de Derechos del Trabajador con asistente virtual de consultas laborales: ${siteUrl}`);
         document.getElementById('whatsappShareBtn').href = `https://api.whatsapp.com/send?text=${shareText}`;
 
         function copyLink() {
