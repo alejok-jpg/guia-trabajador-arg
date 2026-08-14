@@ -8,50 +8,16 @@
     <meta name="google-site-verification" content="gDJFB2aOHivIJk0l2IIMvGO1Iv6dn42dDJTBsQIf8ts" />
 
     <!-- SEO Básico para Buscadores -->
-    <title>Guía de Trámites y Derechos del Trabajador Argentina | Consultas Laborales</title>
-    <meta name="description" content="Guía interactiva y gratuita sobre derechos laborales, recibos de sueldo, aguinaldo (SAC), vacaciones, despidos y licencias en Argentina con asistente virtual.">
-    <meta name="keywords" content="recibo de sueldo, derechos laborales, aguinaldo, SAC, horas extra, trabajo en blanco, vacaciones LCT, liquidacion final, renuncia, despidos, Argentina, LCT 20744">
+    <title>Guía y Calculadora de Derechos del Trabajador Argentina</title>
+    <meta name="description" content="Guía interactiva y calculadora laboral en Argentina: estimá tu sueldo neto, aguinaldo (SAC), vacaciones y consultá tus dudas con nuestro asistente virtual.">
+    <meta name="keywords" content="calculadora de sueldo, calcular aguinaldo, sac proporcional, calculo vacaciones, recibo de sueldo, derechos laborales, Argentina, LCT 20744">
     <meta name="author" content="Guía del Trabajador Arg">
 
     <!-- Open Graph para vistas previas en WhatsApp, LinkedIn y Redes Sociales -->
-    <meta property="og:title" content="Guía de Trámites y Derechos del Trabajador Argentina">
-    <meta property="og:description" content="Consultá tus dudas sobre recibos de sueldo, horas extra, vacaciones y licencias con nuestro asistente virtual gratuito.">
+    <meta property="og:title" content="Guía y Calculadora de Derechos del Trabajador Argentina">
+    <meta property="og:description" content="Calculá tu sueldo neto, aguinaldo y vacaciones estimadas, y consultá tus dudas laborales con nuestro asistente virtual gratuito.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://alejok-jpg.github.io/guia-trabajador-arg/">
-
-    <!-- Esquema de Datos Estructurados Schema.org para Google (FAQPage) -->
-    <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "¿Cuándo se cobra el aguinaldo (SAC) en Argentina?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "El Sueldo Anual Complementario (SAC) se paga en dos cuotas: la primera vence el 30 de junio y la segunda el 18 de diciembre, con un período de tolerancia de hasta 4 días hábiles."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "¿Hasta qué fecha tiene tiempo el empleador para pagar el sueldo?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Según la Ley de Contrato de Trabajo (LCT 20.744), el sueldo debe abonarse dentro de los primeros 4 días hábiles del mes vencido para trabajadores mensualizados."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "¿Cuántos días de vacaciones me corresponden por antigüedad?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "De 6 meses a 5 años de antigüedad corresponden 14 días corridos; de 5 a 10 años, 21 días; de 10 a 20 años, 28 días; y más de 20 años, 35 días corridos."
-              }
-            }
-          ]
-        }
-    </script>
 
     <style>
         :root {
@@ -138,7 +104,99 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Estilos de la Tarjeta de Compartir / Recomendar */
+        /* Estilos de la Calculadora Laboral */
+        .calc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .calc-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+            .calc-group label {
+                font-size: 0.9rem;
+                font-weight: bold;
+                color: var(--accent);
+            }
+
+            .calc-group input, .calc-group select {
+                padding: 0.6rem;
+                border: 1px solid #cbd5e1;
+                border-radius: 8px;
+                font-size: 0.95rem;
+                outline: none;
+            }
+
+                .calc-group input:focus, .calc-group select:focus {
+                    border-color: var(--secondary);
+                }
+
+        .calc-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1.2rem;
+            transition: background 0.2s;
+        }
+
+            .calc-btn:hover {
+                background-color: var(--secondary);
+            }
+
+        .calc-results {
+            display: none;
+            margin-top: 1.5rem;
+            padding: 1.2rem;
+            background-color: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 10px;
+        }
+
+            .calc-results h3 {
+                margin-top: 0;
+                color: #0369a1;
+            }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.4rem 0;
+            border-bottom: 1px dashed #cbd5e1;
+            font-size: 0.95rem;
+        }
+
+            .result-item.total {
+                border-bottom: none;
+                font-weight: bold;
+                font-size: 1.1rem;
+                color: var(--primary);
+                margin-top: 0.5rem;
+                padding-top: 0.8rem;
+            }
+
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 1rem;
+            font-style: italic;
+            background-color: #fffbebf8;
+            padding: 0.6rem;
+            border-radius: 6px;
+            border-left: 3px solid #f59e0b;
+        }
+
+        /* Estilos de la Tarjeta de Compartir */
         .share-card {
             text-align: center;
             border-left-color: #8b5cf6;
@@ -189,7 +247,7 @@
             font-weight: bold;
         }
 
-        /* --- WIDGET DE CHAT FLOTANTE (DINÁMICO) --- */
+        /* --- WIDGET DE CHAT FLOTANTE --- */
         .chat-widget-button {
             position: fixed;
             bottom: 25px;
@@ -352,15 +410,78 @@
 
     <header>
         <h1>Guía de Trámites y Derechos del Trabajador</h1>
-        <p>Información clara, pública y accesible sobre liquidación de sueldos y aportes en Argentina</p>
+        <p>Información clara, calculadora estimada y consultas públicas sobre legislación laboral en Argentina</p>
     </header>
 
     <div class="container">
 
+        <!-- NUEVA SECCIÓN: CALCULADORA ESTIMADA DE CONCEPTOS -->
+        <div class="card">
+            <h2>🧮 Calculadora de Conceptos Laborales (Estimativa)</h2>
+            <p>Ingresá tu sueldo bruto estimado para calcular los descuentos obligatorios de ley y valores proporcionales:</p>
+
+            <div class="calc-grid">
+                <div class="calc-group">
+                    <label for="sueldoBruto">Sueldo Bruto / Básico ($):</label>
+                    <input type="number" id="sueldoBruto" placeholder="Ej: 500000" min="0">
+                </div>
+                <div class="calc-group">
+                    <label for="mesesSac">Meses trabajados en el semestre (SAC):</label>
+                    <select id="mesesSac">
+                        <option value="6">6 meses (Semestre completo)</option>
+                        <option value="5">5 meses</option>
+                        <option value="4">4 meses</option>
+                        <option value="3">3 meses</option>
+                        <option value="2">2 meses</option>
+                        <option value="1">1 mes</option>
+                    </select>
+                </div>
+                <div class="calc-group">
+                    <label for="diasVacaciones">Días de vacaciones correspondientes:</label>
+                    <select id="diasVacaciones">
+                        <option value="14">14 días (hasta 5 años de antigüedad)</option>
+                        <option value="21">21 días (de 5 a 10 años)</option>
+                        <option value="28">28 días (de 10 a 20 años)</option>
+                        <option value="35">35 días (más de 20 años)</option>
+                    </select>
+                </div>
+            </div>
+
+            <button class="calc-btn" onclick="calcularValores()">Calcular Estimación</button>
+
+            <div id="calcResults" class="calc-results">
+                <h3>📋 Resumen de Estimación:</h3>
+                <div class="result-item">
+                    <span>Sueldo Bruto Ingresado:</span>
+                    <strong id="resBruto">$0</strong>
+                </div>
+                <div class="result-item">
+                    <span>Descuentos Ley de Contrato de Trabajo (-17%):</span>
+                    <strong id="resDescuentos" style="color: #dc2626;">-$0</strong>
+                </div>
+                <div class="result-item total">
+                    <span>Sueldo Neto / Bolsillo Estimado:</span>
+                    <strong id="resNeto">$0</strong>
+                </div>
+                <div class="result-item" style="margin-top:0.8rem; padding-top:0.6rem; border-top: 1px solid #cbd5e1;">
+                    <span>Aguinaldo Proporcional Estimado (SAC):</span>
+                    <strong id="resSac">$0</strong>
+                </div>
+                <div class="result-item">
+                    <span>Valor estimado por Día de Vacación (Base LCT /25):</span>
+                    <strong id="resDiaVacaciones">$0</strong>
+                </div>
+            </div>
+
+            <div class="disclaimer">
+                <strong>📌 Nota importante:</strong> Los valores calculados son meramente ilustrativos y orientativos conforme a la Ley de Contrato de Trabajo N° 20.744. No contemplan aportes/contribuciones adicionales de Convenios Colectivos específicos, cuotas sindicales particulares ni la eventual retención del Impuesto a las Ganancias.
+            </div>
+        </div>
+
         <!-- Sección 1: Entendiendo el Recibo de Sueldo -->
         <div class="card">
             <h2>📄 1. ¿Cómo entender tu Recibo de Sueldo?</h2>
-            <p>El recibo de sueldo es el comprobante legal del pago de tu remuneración en Argentina (Ley de Contrato de Trabajo 20.744). Se compone de tres conceptos fundamentales:</p>
+            <p>El recibo de sueldo es el comprobante legal del pago de tu remuneración en Argentina. Se compone de tres conceptos fundamentales:</p>
             <ul>
                 <li><strong>Haberes Remunerativos:</strong> Conceptos sobre los cuales se realizan los descuentos de ley (Jubilación, Obra Social, etc.). Incluye el sueldo básico, antigüedad, presentismo y horas extra.</li>
                 <li><strong>Haberes No Remunerativos:</strong> Sumas extraordinarias, viáticos o asignaciones sobre las que generalmente no se realizan aportes previsionales.</li>
@@ -389,7 +510,7 @@
         <!-- Sección 3: Verificación de Aportes -->
         <div class="card">
             <h2>🔍 3. Libro de Sueldos Digital y Verificación de Aportes</h2>
-            <p>Para constatar que tu empleador realiza el pago de tus cargas sociales y aportes jubiltatorios de forma correcta:</p>
+            <p>Para constatar que tu empleador realiza el pago de tus cargas sociales y aportes jubilatorios de forma correcta:</p>
             <ul>
                 <li>Podés ingresar al servicio <strong>"Trabajo en Blanco"</strong> de la web de AFIP/ARCA utilizando tu clave fiscal o número de CUIL.</li>
                 <li>Allí podés verificar mensualmente si los aportes declarados en tu recibo de sueldo fueron efectivamente ingresados al sistema previsional.</li>
@@ -416,9 +537,6 @@
                     <li>Más de 20 años: <strong>35 días corridos</strong>.</li>
                 </ul>
             </p>
-
-            <h3>¿Qué conceptos integran la Liquidación Final si renuncio o me despiden?</h3>
-            <p>En caso de renuncia o despido, se debe abonar el sueldo proporcional de los días trabajados en el mes, el SAC proporcional y el pago de vacaciones no gozadas. En caso de despido sin causa, corresponden además las indemnizaciones por antigüedad y preaviso.</p>
         </div>
 
         <!-- Sección 5: Compartir y Recomendar -->
@@ -459,10 +577,41 @@
     </div>
 
     <footer>
-        <p>Proyecto Comunitario de Acceso Libre | Guía Informativa de Derechos Laborales en Argentina</p>
+        <p>Proyecto Comunitario de Acceso Libre | Guía e Instrumental Informativo de Derechos Laborales en Argentina</p>
     </footer>
 
     <script>
+        function calcularValores() {
+            const bruto = parseFloat(document.getElementById('sueldoBruto').value);
+            const mesesSac = parseInt(document.getElementById('mesesSac').value);
+            const diasVac = parseInt(document.getElementById('diasVacaciones').value);
+
+            if (isNaN(bruto) || bruto <= 0) {
+                alert("Por favor, ingresá un monto de sueldo bruto válido.");
+                return;
+            }
+
+            // Descuentos Ley (11% + 3% + 3% = 17%)
+            const descuentos = bruto * 0.17;
+            const neto = bruto - descuentos;
+
+            // SAC Proporcional = (Bruto / 2) * (meses / 6)
+            const sac = (bruto / 2) * (mesesSac / 6);
+
+            // Valor día vacación = Bruto / 25
+            const diaVac = bruto / 25;
+
+            const format = (num) => "$ " + num.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+            document.getElementById('resBruto').textContent = format(bruto);
+            document.getElementById('resDescuentos').textContent = "- " + format(descuentos);
+            document.getElementById('resNeto').textContent = format(neto);
+            document.getElementById('resSac').textContent = format(sac);
+            document.getElementById('resDiaVacaciones').textContent = format(diaVac) + " / día";
+
+            document.getElementById('calcResults').style.display = 'block';
+        }
+
         function toggleChat() {
             const widget = document.getElementById('chatWidget');
             if (widget.style.display === 'flex') {
@@ -474,16 +623,14 @@
         }
 
         const siteUrl = window.location.href;
-        const shareText = encodeURIComponent(`Mirá esta Guía de Trámites y Derechos del Trabajador con asistente virtual de consultas sobre recibos y licencias: ${siteUrl}`);
+        const shareText = encodeURIComponent(`Mirá esta Guía y Calculadora de Derechos del Trabajador con asistente virtual de consultas laborales: ${siteUrl}`);
         document.getElementById('whatsappShareBtn').href = `https://api.whatsapp.com/send?text=${shareText}`;
 
         function copyLink() {
             navigator.clipboard.writeText(siteUrl).then(() => {
                 const toast = document.getElementById('copyToast');
                 toast.style.display = 'block';
-                setTimeout(() => {
-                    toast.style.display = 'none';
-                }, 3000);
+                setTimeout(() => { toast.style.display = 'none'; }, 3000);
             });
         }
 
