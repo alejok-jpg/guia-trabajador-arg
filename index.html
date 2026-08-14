@@ -8,9 +8,9 @@
     <meta name="google-site-verification" content="gDJFB2aOHivIJk0l2IIMvGO1Iv6dn42dDJTBsQIf8ts" />
 
     <!-- SEO Básico para Buscadores -->
-    <title>Guía de Trámites y Derechos del Trabajador Argentina</title>
-    <meta name="description" content="Guía interactiva y gratuita sobre derechos laborales, liquidación de sueldo, SAC y licencias en Argentina con asistente virtual.">
-    <meta name="keywords" content="recibo de sueldo, derechos laborales, aguinaldo, SAC, horas extra, trabajo en blanco, Argentina, LCT 20744">
+    <title>Guía de Trámites y Derechos del Trabajador Argentina | Consultas Laborales</title>
+    <meta name="description" content="Guía interactiva y gratuita sobre derechos laborales, recibos de sueldo, aguinaldo (SAC), vacaciones, despidos y licencias en Argentina con asistente virtual.">
+    <meta name="keywords" content="recibo de sueldo, derechos laborales, aguinaldo, SAC, horas extra, trabajo en blanco, vacaciones LCT, liquidacion final, renuncia, despidos, Argentina, LCT 20744">
     <meta name="author" content="Guía del Trabajador Arg">
 
     <!-- Open Graph para vistas previas en WhatsApp, LinkedIn y Redes Sociales -->
@@ -18,6 +18,40 @@
     <meta property="og:description" content="Consultá tus dudas sobre recibos de sueldo, horas extra, vacaciones y licencias con nuestro asistente virtual gratuito.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://alejok-jpg.github.io/guia-trabajador-arg/">
+
+    <!-- Esquema de Datos Estructurados Schema.org para Google (FAQPage) -->
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "¿Cuándo se cobra el aguinaldo (SAC) en Argentina?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "El Sueldo Anual Complementario (SAC) se paga en dos cuotas: la primera vence el 30 de junio y la segunda el 18 de diciembre, con un período de tolerancia de hasta 4 días hábiles."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Hasta qué fecha tiene tiempo el empleador para pagar el sueldo?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Según la Ley de Contrato de Trabajo (LCT 20.744), el sueldo debe abonarse dentro de los primeros 4 días hábiles del mes vencido para trabajadores mensualizados."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Cuántos días de vacaciones me corresponden por antigüedad?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "De 6 meses a 5 años de antigüedad corresponden 14 días corridos; de 5 a 10 años, 21 días; de 10 a 20 años, 28 días; y más de 20 años, 35 días corridos."
+              }
+            }
+          ]
+        }
+    </script>
 
     <style>
         :root {
@@ -77,6 +111,14 @@
                 display: flex;
                 align-items: center;
                 gap: 0.5rem;
+                font-size: 1.35rem;
+            }
+
+            .card h3 {
+                color: var(--accent);
+                margin-top: 1.2rem;
+                margin-bottom: 0.4rem;
+                font-size: 1.05rem;
             }
 
         .badge {
@@ -215,6 +257,7 @@
             .chat-header h3 {
                 margin: 0;
                 font-size: 1.05rem;
+                color: white;
             }
 
         .chat-close-btn {
@@ -316,18 +359,18 @@
 
         <!-- Sección 1: Entendiendo el Recibo de Sueldo -->
         <div class="card">
-            <h2>📄 1. ¿Cómo leer tu Recibo de Sueldo?</h2>
-            <p>El recibo de sueldo es el comprobante legal del pago de tu remuneración. Se compone de tres conceptos fundamentales:</p>
+            <h2>📄 1. ¿Cómo entender tu Recibo de Sueldo?</h2>
+            <p>El recibo de sueldo es el comprobante legal del pago de tu remuneración en Argentina (Ley de Contrato de Trabajo 20.744). Se compone de tres conceptos fundamentales:</p>
             <ul>
                 <li><strong>Haberes Remunerativos:</strong> Conceptos sobre los cuales se realizan los descuentos de ley (Jubilación, Obra Social, etc.). Incluye el sueldo básico, antigüedad, presentismo y horas extra.</li>
-                <li><strong>Haberes No Remunerativos:</strong> Sumas extraordinarias, viáticos o asignaciones sobre las que generalmente no se realizan aportes jubilatorios.</li>
+                <li><strong>Haberes No Remunerativos:</strong> Sumas extraordinarias, viáticos o asignaciones sobre las que generalmente no se realizan aportes previsionales.</li>
                 <li>
-                    <strong>Descuentos de Ley:</strong> Deducciones obligatorias sobre el total remunerativo:
+                    <strong>Descuentos Obligatorios de Ley:</strong> Deducciones legales fijadas sobre el total remunerativo:
                     <ul>
                         <li><span class="badge">11%</span> <strong>Jubilación (SIPA):</strong> Aporte al sistema previsional.</li>
                         <li><span class="badge">3%</span> <strong>INSSJP (Ley 19.032):</strong> Aporte a PAMI.</li>
-                        <li><span class="badge">3%</span> <strong>Obra Social:</strong> Cobertura de salud para el trabajador y su familia.</li>
-                        <li><span class="badge">0.5% - 2%</span> <strong>Cuota Sindical:</strong> (Aplica solo si el trabajador está afiliado al sindicato).</li>
+                        <li><span class="badge">3%</span> <strong>Obra Social:</strong> Cobertura de salud predeterminada o elegida.</li>
+                        <li><span class="badge">0.5% - 2%</span> <strong>Cuota Sindical:</strong> (Aplica solo si estás afiliado al sindicato).</li>
                     </ul>
                 </li>
             </ul>
@@ -335,10 +378,10 @@
 
         <!-- Sección 2: Cálculo de Horas Extra -->
         <div class="card">
-            <h2>⏱️ 2. Horas Extraordinarias</h2>
-            <p>Cuando trabajás fuera de la jornada legal de trabajo (8 horas diarias o 48 semanales):</p>
+            <h2>⏱️ 2. ¿Cómo se calculan las Horas Extraordinarias?</h2>
+            <p>Cuando trabajás fuera de la jornada legal habitual (8 horas diarias o 48 semanales):</p>
             <ul>
-                <li><strong>Horas al 50%:</strong> Se abonan con un recargo del 50% sobre la hora habitual si se realizan en días hábiles (de lunes a viernes y sábados hasta las 13:00 hs).</li>
+                <li><strong>Horas al 50%:</strong> Se abonan con un recargo del 50% sobre el valor hora habitual si se realizan en días hábiles (de lunes a viernes y sábados hasta las 13:00 hs).</li>
                 <li><strong>Horas al 100%:</strong> Se abonan con un recargo del 100% si se realizan los sábados después de las 13:00 hs, domingos o feriados nacionales.</li>
             </ul>
         </div>
@@ -346,17 +389,42 @@
         <!-- Sección 3: Verificación de Aportes -->
         <div class="card">
             <h2>🔍 3. Libro de Sueldos Digital y Verificación de Aportes</h2>
-            <p>Para constatar que tu empleador está realizando el pago de tus cargas sociales y aportes de forma correcta:</p>
+            <p>Para constatar que tu empleador realiza el pago de tus cargas sociales y aportes jubiltatorios de forma correcta:</p>
             <ul>
                 <li>Podés ingresar al servicio <strong>"Trabajo en Blanco"</strong> de la web de AFIP/ARCA utilizando tu clave fiscal o número de CUIL.</li>
-                <li>Allí podés verificar mensualmente si los aportes declarados en el recibo fueron efectivamente ingresados al sistema.</li>
+                <li>Allí podés verificar mensualmente si los aportes declarados en tu recibo de sueldo fueron efectivamente ingresados al sistema previsional.</li>
             </ul>
         </div>
 
-        <!-- Sección 4: Compartir y Recomendar -->
+        <!-- Sección 4: Preguntas Frecuentes Laborales (SEO) -->
+        <div class="card">
+            <h2>❓ 4. Preguntas Frecuentes sobre Derechos Laborales en Argentina</h2>
+
+            <h3>¿Cuándo se cobra el aguinaldo (SAC)?</h3>
+            <p>El Sueldo Anual Complementario se abonará en dos cuotas: la primera con vencimiento el <strong>30 de junio</strong> y la segunda el <strong>18 de diciembre</strong> de cada año (con un período de tolerancia de hasta 4 días hábiles).</p>
+
+            <h3>¿Hasta qué fecha tiene tiempo el empleador para pagar el sueldo?</h3>
+            <p>Para trabajadores mensualizados, el pago debe realizarse dentro de los <strong>primeros 4 días hábiles</strong> del mes vencido (Art. 128 de la LCT).</p>
+
+            <h3>¿Cuántos días de vacaciones corresponden por Ley?</h3>
+            <p>
+                Según la antigüedad en el empleo al 31 de diciembre de cada año:
+                <ul>
+                    <li>Hasta 5 años de antigüedad: <strong>14 días corridos</strong>.</li>
+                    <li>De 5 a 10 años: <strong>21 días corridos</strong>.</li>
+                    <li>De 10 a 20 años: <strong>28 días corridos</strong>.</li>
+                    <li>Más de 20 años: <strong>35 días corridos</strong>.</li>
+                </ul>
+            </p>
+
+            <h3>¿Qué conceptos integran la Liquidación Final si renuncio o me despiden?</h3>
+            <p>En caso de renuncia o despido, se debe abonar el sueldo proporcional de los días trabajados en el mes, el SAC proporcional y el pago de vacaciones no gozadas. En caso de despido sin causa, corresponden además las indemnizaciones por antigüedad y preaviso.</p>
+        </div>
+
+        <!-- Sección 5: Compartir y Recomendar -->
         <div class="card share-card">
             <h2>📢 ¿Te sirvió esta herramienta?</h2>
-            <p>Recomendásela a un compañero de trabajo o familiar para que también conozca sus derechos laborales y pueda resolver sus dudas.</p>
+            <p>Recomendásela a un compañero de trabajo o familiar para que también conozca sus derechos laborales y pueda resolver sus dudas gratis.</p>
             <div class="share-buttons">
                 <a id="whatsappShareBtn" href="#" target="_blank" class="share-btn whatsapp">
                     📲 Compartir por WhatsApp
@@ -391,7 +459,7 @@
     </div>
 
     <footer>
-        <p>Proyecto Comunitario de Acceso Libre | Guía Informativa de Derechos Laborales</p>
+        <p>Proyecto Comunitario de Acceso Libre | Guía Informativa de Derechos Laborales en Argentina</p>
     </footer>
 
     <script>
