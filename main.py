@@ -15,7 +15,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
+# Configuración de la API Key
+api_key = os.environ.get("GEMINI_API_KEY")
+if api_key:
+    genai.configure(api_key=api_key)
 
 class QuestionRequest(BaseModel):
     prompt: str
@@ -23,8 +26,11 @@ class QuestionRequest(BaseModel):
 @app.post("/api/ask")
 async def ask_gemini(request: QuestionRequest):
     try:
-        # Usamos la denominacion oficial del modelo en el SDK de Python
-        model = genai.GenerativeModel("gemini-1.5-flash")
+        if not api_key:
+            return {"response": "Error: No se encontró la GEMINI_API_KEY en Render."}
+
+        # Usamos 'gemini-1.5-flash-latest' o 'gemini-2.0-flash' que son los aliases globales
+        model = genai.GenerativeModel("gemini-1.5-flash-latest")
         
         system_instruction = (
             "Sos exclusivamente un asistente especializado en legislacion laboral, derechos del trabajador "
@@ -32,7 +38,7 @@ async def ask_gemini(request: QuestionRequest):
             "REGLAS ESTRICTAS DE SEGURIDAD Y FOCO:\n"
             "1. Responde SOLO preguntas vinculadas al ambito laboral y liquidacion de haberes en Argentina.\n"
             "2. Si el usuario pregunta sobre cualquier otro tema (recetas, programacion, deportes, historia, tareas escolares, chistes, etc.), "
-            "debes rechazar la consulta amablemente indicando que la herramienta es solo laboral.\n"
+            "debes rechazar la consulta amablemente indicando que la herramienta es solo para consultas laborales.\n"
             "3. Manten un tono claro, profesional y comprensible para cualquier trabajador."
         )
         
@@ -40,6 +46,7 @@ async def ask_gemini(request: QuestionRequest):
         response = model.generate_content(full_prompt)
         
         return {"response": response.text}
+
     except Exception as e:
-        print(f"Error interno en la API: {e}")  # Esto nos deja ver el error exacto en las Logs de Render
-        return {"error": str(e)}
+        print(f"Error interno en la API: {e}")
+        return {"response": f"Hubo un inconveniente al conectar con el servicio: {str(e)}"}
