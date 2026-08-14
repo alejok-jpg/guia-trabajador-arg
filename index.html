@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Trámites y Derechos del Trabajador</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #0284c7;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #334155;
+            --accent: #0f172a;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2.5rem 1rem;
+            text-align: center;
+        }
+
+            header h1 {
+                margin: 0 0 0.5rem 0;
+                font-size: 2rem;
+            }
+
+            header p {
+                margin: 0;
+                opacity: 0.9;
+                font-size: 1.1rem;
+            }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-left: 5px solid var(--secondary);
+        }
+
+            .card h2 {
+                color: var(--primary);
+                margin-top: 0;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+        .badge {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        ul {
+            padding-left: 1.2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.9rem;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Guía de Trámites y Derechos del Trabajador</h1>
+        <p>Información clara, pública y accesible sobre liquidación de sueldos y aportes en Argentina</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Sección 1: Entendiendo el Recibo de Sueldo -->
+        <div class="card">
+            <h2>📄 1. ¿Cómo leer tu Recibo de Sueldo?</h2>
+            <p>El recibo de sueldo es el comprobante legal del pago de tu remuneración. Se compone de tres conceptos fundamentales:</p>
+            <ul>
+                <li><strong>Haberes Remunerativos:</strong> Conceptos sobre los cuales se realizan los descuentos de ley (Jubilación, Obra Social, etc.). Incluye el sueldo básico, antigüedad, presentismo y horas extra.</li>
+                <li><strong>Haberes No Remunerativos:</strong> Sumas extraordinarias, viáticos o asignaciones sobre las que generalmente no se realizan aportes jubilatorios.</li>
+                <li>
+                    <strong>Descuentos de Ley:</strong> Deducciones obligatorias sobre el total remunerativo:
+                    <ul>
+                        <li><span class="badge">11%</span> <strong>Jubilación (SIPA):</strong> Aporte al sistema previsional.</li>
+                        <li><span class="badge">3%</span> <strong>INSSJP (Ley 19.032):</strong> Aporte a PAMI.</li>
+                        <li><span class="badge">3%</span> <strong>Obra Social:</strong> Cobertura de salud para el trabajador y su familia.</li>
+                        <li><span class="badge">0.5% - 2%</span> <strong>Cuota Sindical:</strong> (Aplica solo si el trabajador está afiliado al sindicato).</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Sección 2: Cálculo de Horas Extra -->
+        <div class="card">
+            <h2>⏱️ 2. Horas Extraordinarias</h2>
+            <p>Cuando trabajás fuera de la jornada legal de trabajo (8 horas diarias o 48 semanales):</p>
+            <ul>
+                <li><strong>Horas al 50%:</strong> Se abonan con un recargo del 50% sobre la hora habitual si se realizan en días hábiles (de lunes a viernes y sábados hasta las 13:00 hs).</li>
+                <li><strong>Horas al 100%:</strong> Se abonan con un recargo del 100% si se realizan los sábados después de las 13:00 hs, domingos o feriados nacionales.</li>
+            </ul>
+        </div>
+
+        <!-- Sección 3: Verificación de Aportes -->
+        <div class="card">
+            <h2>🔍 3. Libro de Sueldos Digital y Verificación de Aportes</h2>
+            <p>Para constatar que tu empleador está realizando el pago de tus cargas sociales y aportes de forma correcta:</p>
+            <ul>
+                <li>Podés ingresar al servicio <strong>"Trabajo en Blanco"</strong> de la web de AFIP/ARCA utilizando tu clave fiscal o número de CUIL.</li>
+                <li>Allí podés verificar mensualmente si los aportes declarados en el recibo fueron efectivamente ingresados al sistema.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Proyecto Comunitario de Acceso Libre | Guía Informativa de Derechos Laborales</p>
+    </footer>
+
+</body>
+</html>
