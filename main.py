@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -15,7 +14,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Configuración de la API Key
+# Configuracion de la API Key
 api_key = os.environ.get("GEMINI_API_KEY")
 if api_key:
     genai.configure(api_key=api_key)
@@ -27,9 +26,9 @@ class QuestionRequest(BaseModel):
 async def ask_gemini(request: QuestionRequest):
     try:
         if not api_key:
-            return {"response": "Error: No se encontró la GEMINI_API_KEY en Render."}
+            return {"response": "Error: No se encontro la GEMINI_API_KEY en Render."}
 
-        # Usamos 'gemini-1.5-flash-latest' o 'gemini-2.0-flash' que son los aliases globales
+        # Modelo oficial compatible
         model = genai.GenerativeModel("gemini-1.5-flash-latest")
         
         system_instruction = (
