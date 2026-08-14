@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -6,7 +7,7 @@ import os
 
 app = FastAPI()
 
-# Permitir que tu web en GitHub Pages consulte a este servidor
+# Permitir peticiones desde tu web en GitHub Pages
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -15,7 +16,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Configurar la API Key desde las variables de entorno privadas del servidor
+# Configurar la API Key desde las variables de entorno privadas
 genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
 
 class QuestionRequest(BaseModel):
@@ -27,8 +28,8 @@ async def ask_gemini(request: QuestionRequest):
         model = genai.GenerativeModel("gemini-2.5-flash")
         
         system_instruction = (
-            "Sos un asistente experto en legislación laboral y liquidación de sueldos "
-            "de Argentina (Ley de Contrato de Trabajo 20.744). Respondé de forma clara, "
+            "Sos un asistente experto en legislacion laboral y liquidacion de sueldos "
+            "de Argentina (Ley de Contrato de Trabajo 20.744). Responde de forma clara, "
             "concisa y comprensible para cualquier trabajador."
         )
         
