@@ -26,7 +26,6 @@ async def ask_gemini(request: QuestionRequest):
         if not api_key:
             return {"response": "Error: No se encontro la GEMINI_API_KEY en Render."}
 
-        # Inicializar el nuevo cliente oficial
         client = genai.Client(api_key=api_key)
 
         system_instruction = (
@@ -39,16 +38,27 @@ async def ask_gemini(request: QuestionRequest):
             "3. Manten un tono claro, profesional y comprensible para cualquier trabajador."
         )
 
-        # Generacion de contenido usando la nueva API
-        response = client.models.generate_content(
-            model="gemini-2.5-flash",
-            contents=request.prompt,
-            config=types.GenerateContentConfig(
-                system_instruction=system_instruction
-            )
-        )
+        # Lista de modelos vigentes ordenados por preferencia
+        candidate_models = ["gemini-3.5-flash", "gemini-3-flash-preview", "gemini-2.5-flash"]
         
-        return {"response": response.text}
+        last_error = None
+        for model_name in candidate_models:
+            try:
+                response = client.models.generate_content(
+                    model=model_name,
+                    contents=request.prompt,
+                    config=types.GenerateContentConfig(
+                        system_instruction=system_instruction
+                    )
+                )
+                if response.text:
+                    return {"response": response.text}
+            except Exception as err:
+                last_error = err
+                continue
+
+        # Si ninguno respondio, devuelve el ultimo error detallado
+        return {"response": f"Hubo un inconveniente al conectar con los modelos disponibles: {str(last_error)}"}
 
     except Exception as e:
         print(f"Error interno en la API: {e}")
