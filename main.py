@@ -7,7 +7,6 @@ import os
 
 app = FastAPI()
 
-# Permitir que tu web en GitHub Pages consulte a este servidor
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -16,7 +15,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Configurar la API Key desde las variables de entorno privadas del servidor (Render)
 genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
 
 class QuestionRequest(BaseModel):
@@ -25,7 +23,8 @@ class QuestionRequest(BaseModel):
 @app.post("/api/ask")
 async def ask_gemini(request: QuestionRequest):
     try:
-        model = genai.GenerativeModel("gemini-2.5-flash")
+        # Usamos la denominacion oficial del modelo en el SDK de Python
+        model = genai.GenerativeModel("gemini-1.5-flash")
         
         system_instruction = (
             "Sos exclusivamente un asistente especializado en legislacion laboral, derechos del trabajador "
@@ -33,8 +32,7 @@ async def ask_gemini(request: QuestionRequest):
             "REGLAS ESTRICTAS DE SEGURIDAD Y FOCO:\n"
             "1. Responde SOLO preguntas vinculadas al ambito laboral y liquidacion de haberes en Argentina.\n"
             "2. Si el usuario pregunta sobre cualquier otro tema (recetas, programacion, deportes, historia, tareas escolares, chistes, etc.), "
-            "debes rechazar la consulta amablemente con el siguiente mensaje exacto:\n"
-            "'Esta herramienta esta disenada unicamente para responder dudas sobre derechos laborales y liquidacion de sueldos en Argentina. Por favor, realiza una consulta vinculada a este tema.'\n"
+            "debes rechazar la consulta amablemente indicando que la herramienta es solo laboral.\n"
             "3. Manten un tono claro, profesional y comprensible para cualquier trabajador."
         )
         
@@ -43,4 +41,5 @@ async def ask_gemini(request: QuestionRequest):
         
         return {"response": response.text}
     except Exception as e:
+        print(f"Error interno en la API: {e}")  # Esto nos deja ver el error exacto en las Logs de Render
         return {"error": str(e)}
