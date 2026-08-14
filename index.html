@@ -3,7 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía de Trámites y Derechos del Trabajador</title>
+
+    <!-- Verificación de Google Search Console -->
+    <meta name="google-site-verification" content="gDJFB2aOHivIJk0l2IIMvGO1Iv6dn42dDJTBsQIf8ts" />
+
+    <!-- SEO Básico para Buscadores -->
+    <title>Guía de Trámites y Derechos del Trabajador Argentina</title>
+    <meta name="description" content="Guía interactiva y gratuita sobre derechos laborales, liquidación de sueldo, SAC y licencias en Argentina con asistente virtual.">
+    <meta name="keywords" content="recibo de sueldo, derechos laborales, aguinaldo, SAC, horas extra, trabajo en blanco, Argentina, LCT 20744">
+    <meta name="author" content="Guía del Trabajador Arg">
+
+    <!-- Open Graph para vistas previas en WhatsApp, LinkedIn y Redes Sociales -->
+    <meta property="og:title" content="Guía de Trámites y Derechos del Trabajador Argentina">
+    <meta property="og:description" content="Consultá tus dudas sobre recibos de sueldo, horas extra, vacaciones y licencias con nuestro asistente virtual gratuito.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alejok-jpg.github.io/guia-trabajador-arg/">
+
     <style>
         :root {
             --primary: #1e3a8a;
@@ -159,7 +174,7 @@
             }
 
         .chat-widget-container {
-            display: none; /* Oculto por defecto */
+            display: none;
             position: fixed;
             bottom: 90px;
             right: 25px;
@@ -380,7 +395,6 @@
     </footer>
 
     <script>
-        // Lógica para abrir/cerrar la ventana de chat flotante
         function toggleChat() {
             const widget = document.getElementById('chatWidget');
             if (widget.style.display === 'flex') {
@@ -391,7 +405,6 @@
             }
         }
 
-        // Configuración del enlace dinámico para compartir por WhatsApp
         const siteUrl = window.location.href;
         const shareText = encodeURIComponent(`Mirá esta Guía de Trámites y Derechos del Trabajador con asistente virtual de consultas sobre recibos y licencias: ${siteUrl}`);
         document.getElementById('whatsappShareBtn').href = `https://api.whatsapp.com/send?text=${shareText}`;
@@ -413,7 +426,6 @@
 
             if (!text) return;
 
-            // Mostrar mensaje del usuario
             const userDiv = document.createElement('div');
             userDiv.className = 'message user';
             userDiv.textContent = text;
@@ -422,7 +434,6 @@
             userInput.value = '';
             chatBox.scrollTop = chatBox.scrollHeight;
 
-            // Mensaje temporal de "pensando..."
             const botDiv = document.createElement('div');
             botDiv.className = 'message bot';
             botDiv.textContent = 'Pensando respuesta...';
